@@ -34,7 +34,7 @@ def generate_experiments_configurations():
                     for seed in seed_lst:
                         path_log_file = os.path.join("Logs",
                                                      f"log_file_{cifar_type}_{model_type}_{experiment_type.replace(' ', '_')}_{factor}_{seed}.txt")
-                        cmd += f"nohup python adl_project_script.py --cifar_type {cifar_type} --model_type {model_type} --experiment_type '{experiment_type}' --factor {factor} --seed {seed} > {path_log_file} &\n"
+                        cmd += f"nohup python main.py --cifar_type {cifar_type} --model_type {model_type} --experiment_type '{experiment_type}' --factor {factor} --seed {seed} > {path_log_file} &\n"
 
     with open("all_experiments.sh", "w") as fl:
         fl.write(cmd)
